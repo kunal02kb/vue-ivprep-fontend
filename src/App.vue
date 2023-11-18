@@ -1,26 +1,32 @@
+<!-- frontend/src/App.vue -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <h1>Ice Breaker</h1>
+    <IceBreakerForm />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import IceBreakerForm from "@/components/IceBreakerForm.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    IceBreakerForm,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* Global styles here */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ecf4fc !important;
+  color: #333;
+  line-height: 1.6;
+  height: auto;
+  /* min-height: 690px; */
 }
 </style>
