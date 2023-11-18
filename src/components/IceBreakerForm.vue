@@ -1,11 +1,37 @@
 <!-- frontend/src/components/IceBreakerForm.vue -->
 <template>
+  <v-card max-width="448" class="mx-auto" color="grey-lighten-3">
+    <v-layout>
+      <v-app-bar>
+        <v-app-bar-title>Interview Preparation Assistant</v-app-bar-title>
+      </v-app-bar>
+    </v-layout>
+  </v-card>
+
   <div class="container">
-    <form @submit.prevent="submitForm">
-      <input v-model="name" type="text" placeholder="Enter name" />
-      <input v-model="jobDescription" type="text" placeholder="Job Title" />
-      <button id="magic-button" type="submit">Do The Magic</button>
-    </form>
+    <div>
+      <p class="about">
+        Introducing the Interview Preparation Assistant, a cutting-edge project
+        revolutionizing your readiness for job interviews. Simply share your
+        name and target job title, and experience a personalized interview
+        question compilation. Leveraging advanced language models and web
+        scraping technology, this system crafts tailored content to sharpen your
+        responses and boost confidence. Seamlessly blending innovation with
+        convenience, it's your go-to tool for acing interviews. Elevate your
+        preparation, enhance your performance, and secure that dream job with
+        the Interview Preparation Assistant.
+      </p>
+    </div>
+    <div class="project_img">
+      <img src="frontend\src\components\proj.png" alt="project image" />
+    </div>
+    <div>
+      <form @submit.prevent="submitForm">
+        <input v-model="name" type="text" placeholder="Enter name" />
+        <input v-model="jobDescription" type="text" placeholder="Job Title" />
+        <button id="magic-button" type="submit">Do The Magic</button>
+      </form>
+    </div>
     <div v-if="showResult" id="result">
       <img
         v-if="result.picture_url"
@@ -69,20 +95,29 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Your component-specific styles */
+<style>
+.project_img {
+  width: 100%; /* Add this line to ensure the image takes up the full width */
+}
+.about {
+  word-wrap: break-word;
+  width: 600px;
+  justify-content: left;
+  display: flex;
+}
+
 .container {
   width: 95%;
   min-height: 670px;
-  margin: 15px auto;
+  margin: 100px auto;
   padding: 30px;
   background-color: #ffffff !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
   border-radius: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column;
+  align-items: center; */
 }
 
 input[type="text"] {
@@ -122,5 +157,15 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+.v-toolbar-title__placeholder {
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
 </style>

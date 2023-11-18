@@ -1,11 +1,10 @@
-// frontend/src/main.js
-import { createApp } from "vue";
-import App from "./App.vue";
-import axios from "axios";
+import { createApp } from 'vue'
+import App from './App.vue'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 
-const app = createApp(App);
+loadFonts()
 
-// Set up global axios instance
-app.config.globalProperties.$axios = axios.create();
-
-app.mount("#app");
+createApp(App)
+  .use(vuetify)
+  .mount('#app')

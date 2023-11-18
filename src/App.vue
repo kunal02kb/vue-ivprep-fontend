@@ -1,7 +1,7 @@
 <!-- frontend/src/App.vue -->
 <template>
-  <div id="app">
-    <h1>Ice Breaker</h1>
+  <div id="app" class="base">
+    <!-- <h1>Ice Breaker</h1> -->
     <IceBreakerForm />
   </div>
 </template>
@@ -18,15 +18,9 @@ export default {
 
 <style>
 /* Global styles here */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.base {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ecf4fc !important;
+  background-color: #ecf4fc;
   color: #333;
-  line-height: 1.6;
-  height: auto;
-  /* min-height: 690px; */
 }
 </style>
