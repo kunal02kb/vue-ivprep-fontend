@@ -8,7 +8,7 @@
 
 <script>
 import IceBreakerForm from "@/components/IceBreakerForm.vue";
-
+import Vue from "vue";
 export default {
   components: {
     IceBreakerForm,
@@ -20,7 +20,9 @@ export default {
 /* Global styles here */
 .base {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ecf4fc;
   color: #333;
+}
+html {
+  background-color: #ecf4fc;
 }
 </style>
