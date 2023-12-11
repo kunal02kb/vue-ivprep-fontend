@@ -17,6 +17,9 @@
   </v-card>
 
   <div class="container">
+    <div class="loader-container" v-if="isLoading">
+      <div class="loader"></div>
+    </div>
     <div v-if="!showResult">
       <table>
         <tr>
@@ -67,7 +70,11 @@
               v-if="result.picture_url"
               :src="result.picture_url"
               alt="Profile Picture"
-              style="border-radius: 50% !important"
+              style="
+                border-radius: 50% !important;
+                width: 250px !important;
+                height: 250px !important;
+              "
             />
           </td>
           <td>
@@ -154,11 +161,13 @@ export default {
         interests: [],
       },
       tab: null,
+      isLoading: false,
     };
   },
   methods: {
     async submitForm() {
       try {
+        this.isLoading = true;
         const response = await axios.post("http://localhost:5000/process", {
           name: this.name,
           job_description: this.jobDescription,
@@ -168,6 +177,8 @@ export default {
         this.showResult = true;
       } catch (error) {
         console.error(error);
+      } finally {
+        this.isLoading = false;
       }
     },
   },
@@ -245,5 +256,36 @@ form {
   align-items: center;
   justify-content: center;
   font-size: 28px;
+}
+
+.loader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7); /* Add a semi-transparent background */
+  z-index: 999; /* Ensure it's on top of other content */
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
